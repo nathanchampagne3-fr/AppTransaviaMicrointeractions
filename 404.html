@@ -1,16 +1,29 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <script>
-      var l = window.location;
-      l.replace(
-        l.protocol + '//' + l.host + l.pathname.split('/').slice(0, 1).join('/') +
-        '/?p=/' + l.pathname.slice(1).replace(/&/g, '~and~') +
-        (l.search ? '&q=' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-        l.hash
+
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <script>
+  (function(l) {
+    if (l.search[1] === '/') {
+      var decoded = l.search.slice(1).split('&').map(function(s) {
+        return s.replace(/~and~/g, '&')
+      }).join('?');
+      window.history.replaceState(null, null,
+        l.pathname.slice(0, -1) + decoded + l.hash
       );
-    </script>
-  </head>
-  <body></body>
-</html>
+    }
+  }(window.location))
+</script>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Améliorer réservation Transavia</title>
+      <style>html, body { height: 100%; margin: 0; } #root { height: 100%; }</style>
+      <script type="module" crossorigin src="/AppTransaviaMicrointeractions/assets/index-BwCjUAcC.js"></script>
+      <link rel="stylesheet" crossorigin href="/AppTransaviaMicrointeractions/assets/index-BGK2IyxK.css">
+    </head>
+
+    <body>
+      <div id="root"></div>
+    </body>
+  </html>
+  
