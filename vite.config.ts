@@ -1,3 +1,10 @@
+export default defineConfig({
+  base: '/AppTransaviaMicrointeractions/',  // ← ajoute cette ligne
+  plugins: [
+    figmaAssetResolver(),
+    react(),
+    tailwindcss(),
+  ],
 import { defineConfig } from 'vite'
 import path from 'path'
 import tailwindcss from '@tailwindcss/vite'
